@@ -1,0 +1,123 @@
+body {
+    font-family: 'MangoGrotesque', sans-serif; /* Appliquer la police VT323 à toute la page */
+    font-size: 20px;
+    
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 48px;
+    letter-spacing: 0.08em;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.instructions {
+    background-color: #f9f9f9; /* Fond léger pour les instructions */
+    padding: 15px;
+    border: 1px solid #ccc; /* Bordure pour délimiter la boîte */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 26px;
+    letter-spacing: 0.05em;
+}
+
+.instructions h2 {
+    text-align: center; /* Centre le titre */
+    margin-bottom: 15px; /* Espace en dessous du titre */
+    letter-spacing: 0.08em;
+}
+
+.controls { 
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    background-color: #e0e0e0; /* Fond gris pour les outils */
+    padding: 15px;
+    border-radius: 8px;
+    width: 70%; /* Largeur des contrôles à 50% */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1); /* Ajouter une ombre légère */
+}
+
+.font-options {
+    background-color: #f9f9f9; /* Fond léger pour la sous-boîte */
+    padding: 10px;
+    border: 1px solid #ccc; /* Bordure pour délimiter la boîte */
+    border-radius: 8px; /* Coins arrondis */
+    margin-bottom: 15px; /* Espace en dessous de la boîte */
+}
+
+.font-options h3 {
+    margin-bottom: 10px; /* Espace en dessous du titre */
+    margin-top: 0px;
+}
+
+.banner-canvas {
+    width: 100%; /* S'assurer que le conteneur prend toute la largeur */
+    max-width: 1000px; /* Définir une largeur maximale pour le conteneur */
+    margin: 20px auto; /* Espace au-dessus du canvas et centrer horizontalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#banner-canvas {
+    width: 100%; /* Le canvas prend toute la largeur de son conteneur */
+    height: auto; /* La hauteur s'ajuste automatiquement */
+    max-height: 500px; /* Limite la hauteur si nécessaire */
+    border: 5px solid #000000; /* Optionnel : bordure pour visualiser les limites du canvas */
+    border-radius: 8px; /* Coins arrondis */
+}
+
+
+#downloadBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: #007bff; /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    letter-spacing: 0.05em;
+}
+
+#downloadBtn:hover {
+    background-color: #0056b3; /* Couleur du bouton au survol */
+}
+
+footer {
+    margin-top: 30px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
