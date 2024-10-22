@@ -92,23 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Récupérer les champs d'entrée pour les NFT
         const nftInputs = document.querySelectorAll('.nft-id');
     
-        // Réinitialiser le canevas pour effacer les NFT précédemment chargés
-        const canvas = document.getElementById('banner-canvas');
-        const ctx = canvas.getContext('2d');
-    
-        // Sauvegarder la couleur de fond avant d'effacer
-        const backgroundColor = "#FFFFFF"; // Remplacez par votre couleur de fond par défaut ou utilisez une variable
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canevas
-    
-        // Redessiner le fond
-        ctx.fillStyle = backgroundColor; // Utilisez la couleur de fond souhaitée
-        ctx.fillRect(0, 0, canvas.width, canvas.height); // Dessinez le fond
-        
-        // Dessiner l'image de fond sur le canevas
-        if (backgroundImage.complete) {
-            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); // Redessine l'image de fond
-        }
-    
         // Initialiser un compteur pour la position horizontale
         let nftCount = 0; // Compteur pour suivre le nombre de NFTs chargés
     
@@ -138,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
                     tempNftImage.onload = () => {
                         const transparentNftImage = removeBackgroundColor(tempNftImage, bgColor); // Supprimer le fond
-                        
+    
                         // Ajoute l'image NFT avec fond supprimé au canevas
                         drawNftOnCanvas(transparentNftImage, nftCount); // Passe le compteur en paramètre
                         nftCount++; // Incrémente le compteur après avoir dessiné le NFT
@@ -156,9 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    
-
-    
     function drawNftOnCanvas(img, index) {
         const canvas = document.getElementById('banner-canvas');
         const ctx = canvas.getContext('2d');
@@ -173,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
     
         if (index < positions.length) {
+            // Ne pas effacer le canvas ici
             ctx.drawImage(img, positions[index].x, positions[index].y, positions[index].width, positions[index].height);
         }
     }
