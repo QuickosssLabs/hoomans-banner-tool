@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoomans Banner Generator for X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixeled&family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/Humane-Regular.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="title">Hoomans Banner Tool</h1>
+        
+        <div class="controls-container">
+            <div class="instructions">
+                <h3><label for="background-select">Choose a banner background:</label></h3>
+<div id="background-thumbnails" class="background-thumbnails">
+    <div class="thumbnail" data-image="images/background/banner-background1.png">
+        <img src="images/background/banner-background1.png" alt="Blue Sky" />
+    </div>
+    <div class="thumbnail" data-image="images/background/banner-background2.png">
+        <img src="images/background/banner-background2.png" alt="Example 2" />
+    </div>
+    <div class="thumbnail" data-image="images/background/banner-background3.png">
+        <img src="images/background/banner-background3.png" alt="Example 3" />
+    </div>
+    <!-- Ajoutez d'autres vignettes si nécessaire -->
+</div>
+
+            </div>         
+
+            <div class="controls">
+                <h3>Add NFTs to display on the banner :</h3>
+                <div id="nft-container">
+                        <!-- Le premier champ d'entrée pour NFT ID -->
+                        <br>NFT 1 : <input type="text" id="nft-id-1" class="nft-id" placeholder="Enter NFT #ID">
+                        <br>NFT 2 : <input type="text" id="nft-id-2" class="nft-id" placeholder="Enter NFT #ID">
+                        <br>NFT 3 : <input type="text" id="nft-id-3" class="nft-id" placeholder="Enter NFT #ID">
+                        <br>NFT 4 : <input type="text" id="nft-id-4" class="nft-id" placeholder="Enter NFT #ID">
+                        <br>NFT 5 : <input type="text" id="nft-id-5" class="nft-id" placeholder="Enter NFT #ID">
+                        <br>NFT 6 : <input type="text" id="nft-id-6" class="nft-id" placeholder="Enter NFT #ID">
+                        <p><button id="load-nft-btn">Load NFT</button></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="banner-canvas">
+            <canvas id="banner-canvas" width="1500" height="500"></canvas>
+            <button id="downloadBtn">Download Banner</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Banner Generator tool created by <a href="https://twitter.com/0x_Quickosss" target="_blank">Quickosss</a>.</p>
+        <p>Feel free to contact me on X if you want to add your own community</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
