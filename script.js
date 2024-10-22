@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Récupérer les champs d'entrée pour les NFT
         const nftInputs = document.querySelectorAll('.nft-id');
     
-        // Initialiser un compteur pour la position horizontale
-        let nftCount = 0; // Compteur pour suivre le nombre de NFTs chargés
+        // Initialiser un tableau pour stocker les NFTs chargés
+        let nftImages = []; // Tableau qui stockera toutes les images des NFTs déjà chargées
     
         nftInputs.forEach(input => {
             const tokenId = input.value.trim(); // Récupère l'ID du NFT en supprimant les espaces
@@ -121,28 +121,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
                     tempNftImage.onload = () => {
                         const transparentNftImage = removeBackgroundColor(tempNftImage, bgColor); // Supprimer le fond
+                        
+                        // Ajouter l'image NFT au tableau
+                        nftImages.push(transparentNftImage);
     
-                        // Ajoute l'image NFT avec fond supprimé au canevas
-                        drawNftOnCanvas(transparentNftImage, nftCount); // Passe le compteur en paramètre
-                        nftCount++; // Incrémente le compteur après avoir dessiné le NFT
+                        // Redessiner tout le canevas
+                        drawVisibleBanner();
+                        drawAllNfts(nftImages); // Redessiner tous les NFTs à partir du tableau
                     };
                 } else {
                     console.error('Invalid API response or NFT not found.');
-                    alert('Erreur : Invalid API response or NFT not found.');
+                    alert('Erreur : NFT non trouvé ou réponse API invalide.');
                 }
             })
             .catch(error => {
                 console.error('Error loading NFT image:', error);
-                alert('Error loading NFT image;');
+                alert('Erreur lors du chargement de l\'image du NFT.');
             });
         });
     }
     
-    
-    function drawNftOnCanvas(img, index) {
-        const canvas = document.getElementById('banner-canvas');
-        const ctx = canvas.getContext('2d');
-    
+    // Fonction pour redessiner tous les NFTs stockés dans le tableau
+    function drawAllNfts(nftImages) {
         const positions = [
             { x: 180, y: 110, width: 400, height: 400 }, // NFT 1
             { x: 940, y: 200, width: 340, height: 340 }, // NFT 2
@@ -152,10 +152,12 @@ document.addEventListener('DOMContentLoaded', function() {
             { x: 720, y: 160, width: 340, height: 340 }, // NFT 6
         ];
     
-        if (index < positions.length) {
-            // Ne pas effacer le canvas ici
-            ctx.drawImage(img, positions[index].x, positions[index].y, positions[index].width, positions[index].height);
-        }
+        // Redessiner chaque NFT à partir du tableau des images
+        nftImages.forEach((img, index) => {
+            if (index < positions.length) {
+                ctx.drawImage(img, positions[index].x, positions[index].y, positions[index].width, positions[index].height);
+            }
+        });
     }
 
     
