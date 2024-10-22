@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             if (baseTrait) {
-                return colorMapBase[baseTrait.value] || "#FFFFFF";
+                return colorMapBase[baseTrait.value] || "#7461bd"; // Utilise la couleur du trait "Base" ou par défaut
             }
         }
 
-        return "#FFFFFF";  
+        return "#7461bd";;  
     }
 
     function loadNFTs() {
@@ -201,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const g = data[i + 1];
             const b = data[i + 2];
     
+            // Si la couleur est proche de la couleur de fond, rendre transparent
             if (isSimilarColor(r, g, b, bgColor)) {
                 data[i + 3] = 0; // Mettre l'alpha à 0 (transparent)
             }
@@ -210,6 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return offScreenCanvas;
     }
     
+    // Convertir hex en RGB
     function hexToRgb(hex) {
         const bigint = parseInt(hex.slice(1), 16);
         const r = (bigint >> 16) & 255;
@@ -218,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return { r, g, b };
     }
     
+    // Vérifier si une couleur est similaire à celle de l'arrière-plan
     function isSimilarColor(r, g, b, bgColor, tolerance = 5) {
         return Math.abs(r - bgColor.r) < tolerance && 
                Math.abs(g - bgColor.g) < tolerance && 
