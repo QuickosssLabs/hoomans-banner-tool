@@ -128,12 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                 } else {
                     console.error('Invalid API response or NFT not found.');
-                    alert('Erreur : NFT non trouvé ou réponse API invalide.');
+                    alert('Erreur : Invalid API response or NFT not found.');
                 }
             })
             .catch(error => {
                 console.error('Error loading NFT image:', error);
-                alert('Erreur lors du chargement de l\'image du NFT.');
+                alert('Error loading NFT image;');
             });
         });
     }
